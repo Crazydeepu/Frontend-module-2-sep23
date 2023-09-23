@@ -57,15 +57,16 @@ function insert(table) {table.map((e) => {
 insert(userdata)
 
 searchButton.onclick = function () {
-    var totalRows = dataTable.ariaRowSpan.length;
-    for(var i = totalRows - 1; i>0; i--){
+   
+    var totalRows = dataTable.rows.length;
+    for (var i = totalRows - 1; i > 0; i--) {
         dataTable.deleteRow(i);
     }
-
+    
     let value = searchBox.value.toLowerCase()
 
-    let filter = userdata.filter1(e => e.first_name.toLowerCase().includes(value) || e.last_name().includes(value) || e.email.toLowerCase().includes(value))
-    insert(filter)
+    let filter1 = userdata.filter(e => e.first_name.toLowerCase().includes(value) || e.last_name.toLowerCase().includes(value) || e.email.toLowerCase().includes(value))
+    insert(filter1)
 }
 
 
